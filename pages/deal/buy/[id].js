@@ -24,7 +24,6 @@ const BuyPage = ({}) => {
         <Header />
         <Container style={{ paddingTop: 60, paddingBottom: 100 }} maxWidth="sm">
           <center></center>
-          <img src="/wallet.png" />
         </Container>
         <Footer deal={deal} />
       </div>

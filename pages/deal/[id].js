@@ -54,15 +54,6 @@ const DealPage = ({}) => {
           </Typography>
           <Typography
             variant="body1"
-            component="div"
-            fontSize="12px"
-            style={{ textAlign: "center" }}
-            gutterBottom
-          >
-            + network fees
-          </Typography>
-          <Typography
-            variant="body1"
             fontSize="16px"
             style={{
               textAlign: "center",
