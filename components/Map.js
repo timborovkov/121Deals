@@ -12,7 +12,10 @@ const Map = ({ deals }) => {
         deals.forEach((deal) => {
           const marker = new window.HWMapJsSDK.HWMarker({
             map: window.map,
-            position: { lat: deal.location._lat, lng: deal.location._long },
+            position: {
+              lat: parseFloat(deal.location._lat),
+              lng: parseFloat(deal.location._long),
+            },
             zIndex: 10,
             icon: {
               opacity: 0.9,

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import * as React from "react";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
@@ -11,9 +13,11 @@ const AddNew = () => {
         zIndex: 999,
       }}
     >
-      <Fab color="primary" aria-label="add">
-        <AddIcon />
-      </Fab>
+      <Link href="/deal/add">
+        <Fab color="primary" aria-label="add">
+          <AddIcon />
+        </Fab>
+      </Link>
     </div>
   );
 };

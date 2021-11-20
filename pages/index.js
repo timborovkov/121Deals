@@ -32,7 +32,7 @@ export default function Home() {
               setInterval(()=>{
                 var mapOptions = {};
                 mapOptions.center = {lat: 60.18574466774271, lng: 24.937634178088686};
-                mapOptions.zoom = 12;
+                mapOptions.zoom = 10;
                 mapOptions.language='ENG';
                 // Set sourceType to raster.
                 mapOptions.sourceType = 'raster';
