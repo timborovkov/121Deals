@@ -4,6 +4,7 @@ import {
   Container,
   InputAdornment,
   FormControl,
+  Paper,
 } from "@mui/material";
 
 const SearchBar = () => {
@@ -17,7 +18,7 @@ const SearchBar = () => {
       }}
     >
       <Container>
-        <FormControl variant="outlined" fullWidth>
+        <Paper fullWidth>
           <TextField
             label="Search"
             variant="filled"
@@ -30,7 +31,7 @@ const SearchBar = () => {
               ),
             }}
           />
-        </FormControl>
+        </Paper>
       </Container>
     </div>
   );
