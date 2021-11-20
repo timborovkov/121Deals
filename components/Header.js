@@ -17,7 +17,15 @@ const Header = () => {
   const router = useRouter();
 
   return (
-    <Box sx={{ flexGrow: 1, position: "fixed", top: "0px", width: "100%" }}>
+    <Box
+      sx={{
+        flexGrow: 1,
+        position: "fixed",
+        top: "0px",
+        width: "100%",
+        zIndex: 999,
+      }}
+    >
       <AppBar position="static">
         <Toolbar>
           <IconButton

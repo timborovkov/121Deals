@@ -6,6 +6,7 @@ import {
   getDoc,
   doc,
   setDoc,
+  addDoc,
 } from "firebase/firestore/lite";
 
 const clientCredentials = {
@@ -48,7 +49,7 @@ const updateDeal = async (id, data) => {
 };
 
 const createDeal = async (data) => {
-  await setDoc(doc(db, "deals"), data);
+  await addDoc(collection(db, "deals"), data);
 };
 
 export default {

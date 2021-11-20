@@ -5,8 +5,6 @@ import {
   TextField,
   Button,
   FormGroup,
-  FormControlLabel,
-  Switch,
 } from "@mui/material";
 
 import Header from "../../components/Header";
@@ -16,12 +14,15 @@ import db from "../../firebase";
 const AddPage = ({}) => {
   const [deal, setDeal] = React.useState({
     sold: false,
+    location: {
+      _lat: 0,
+      _long: 0,
+    },
   });
 
   const save = () => {
     db.createDeal(deal);
     alert("Created");
-    window.location.href = "/";
   };
 
   return (
@@ -41,11 +42,37 @@ const AddPage = ({}) => {
           <FormGroup>
             <TextField
               id="outlined-basic"
+              label="Title"
+              variant="outlined"
+              fullWidth
+              autoFocus
+              style={{ marginBottom: 15 }}
+              onChange={(e) => setDeal({ ...deal, title: e.target.value })}
+            />
+            <TextField
+              id="outlined-basic"
+              label="Pin"
+              variant="outlined"
+              fullWidth
+              autoFocus
+              style={{ marginBottom: 15 }}
+              onChange={(e) => setDeal({ ...deal, pin: e.target.value })}
+            />
+            <TextField
+              id="outlined-basic"
+              label="Tags"
+              variant="outlined"
+              fullWidth
+              autoFocus
+              style={{ marginBottom: 15 }}
+              onChange={(e) => setDeal({ ...deal, tags: e.target.value })}
+            />
+            <TextField
+              id="outlined-basic"
               label="Contact email"
               variant="outlined"
               fullWidth
               autoFocus
-              value={deal.title}
               style={{ marginBottom: 15 }}
               onChange={(e) => setDeal({ ...deal, title: e.target.value })}
             />
@@ -55,9 +82,38 @@ const AddPage = ({}) => {
               variant="outlined"
               fullWidth
               autoFocus
-              value={deal.address}
               style={{ marginBottom: 15 }}
               onChange={(e) => setDeal({ ...deal, address: e.target.value })}
+            />
+            <TextField
+              id="outlined-basic"
+              label="Latitude"
+              variant="outlined"
+              type="number"
+              fullWidth
+              autoFocus
+              style={{ marginBottom: 15 }}
+              onChange={(e) =>
+                setDeal({
+                  ...deal,
+                  location: { ...deal.location, _lat: e.target.value },
+                })
+              }
+            />
+            <TextField
+              id="outlined-basic"
+              label="Longitude"
+              variant="outlined"
+              type="number"
+              fullWidth
+              autoFocus
+              style={{ marginBottom: 15 }}
+              onChange={(e) =>
+                setDeal({
+                  ...deal,
+                  location: { ...deal.location, _long: e.target.value },
+                })
+              }
             />
             <TextField
               id="outlined-basic"
@@ -67,7 +123,6 @@ const AddPage = ({}) => {
               autoFocus
               multiline
               maxRows={4}
-              value={deal.description}
               style={{ marginBottom: 15 }}
               onChange={(e) =>
                 setDeal({ ...deal, description: e.target.value })
@@ -79,7 +134,6 @@ const AddPage = ({}) => {
               variant="outlined"
               fullWidth
               autoFocus
-              value={deal.email}
               style={{ marginBottom: 15 }}
               onChange={(e) => setDeal({ ...deal, email: e.target.value })}
             />
@@ -89,7 +143,6 @@ const AddPage = ({}) => {
               variant="outlined"
               fullWidth
               autoFocus
-              value={deal.phone}
               style={{ marginBottom: 15 }}
               onChange={(e) => setDeal({ ...deal, phone: e.target.value })}
             />
@@ -99,7 +152,6 @@ const AddPage = ({}) => {
               variant="outlined"
               fullWidth
               autoFocus
-              value={deal.price}
               style={{ marginBottom: 15 }}
               onChange={(e) => setDeal({ ...deal, price: e.target.value })}
             />
@@ -109,7 +161,6 @@ const AddPage = ({}) => {
               variant="outlined"
               fullWidth
               autoFocus
-              value={deal.wallet}
               style={{ marginBottom: 15 }}
               onChange={(e) => setDeal({ ...deal, wallet: e.target.value })}
             />
@@ -120,7 +171,7 @@ const AddPage = ({}) => {
             onClick={save}
             style={{ marginBottom: 15 }}
           >
-            Save
+            Publish
           </Button>
         </div>
       </Container>
