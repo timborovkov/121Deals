@@ -1,10 +1,14 @@
+import { useRouter } from "next/router";
+
 import Head from "next/head";
 import React from "react";
 
 const Map = ({ deals }) => {
+  const router = useRouter();
+
   React.useEffect(() => {
     deals.forEach((deal) => {
-      new window.HWMapJsSDK.HWMarker({
+      const marker = new window.HWMapJsSDK.HWMarker({
         map: window.map,
         position: { lat: deal.location._lat, lng: deal.location._long },
         zIndex: 10,
@@ -12,6 +16,10 @@ const Map = ({ deals }) => {
           opacity: 0.9,
           scale: 0.8,
         },
+      });
+      marker.addListener("click", () => {
+        window.deal = deal;
+        router.push("/deal/" + deal.id);
       });
     });
     window.addEventListener("load", function () {});
@@ -35,7 +43,6 @@ const Map = ({ deals }) => {
                 // Set sourceType to raster.
                 mapOptions.sourceType = 'raster';
                 window.map = new HWMapJsSDK.HWMap(document.getElementById('map'), mapOptions);
-                window.map.setPresetStyleId("night");
                 window.HWMapJsSDK = HWMapJsSDK;
             }
             `,
