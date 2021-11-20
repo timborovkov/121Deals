@@ -33,7 +33,8 @@ const DealPage = ({}) => {
   };
 
   const save = () => {
-    console.log(deal);
+    db.updateDeal(id, deal);
+    alert("Saved");
   };
 
   React.useEffect(async () => {

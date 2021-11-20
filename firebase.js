@@ -5,6 +5,7 @@ import {
   getDocs,
   getDoc,
   doc,
+  setDoc,
 } from "firebase/firestore/lite";
 
 const clientCredentials = {
@@ -41,7 +42,18 @@ const getDeal = async (id) => {
   }
 };
 
+const updateDeal = async (id, data) => {
+  const docRef = doc(db, "deals/" + id);
+  await setDoc(docRef, data, { merge: true });
+};
+
+const createDeal = async (data) => {
+  await setDoc(doc(db, "deals"), data);
+};
+
 export default {
   getDeals,
   getDeal,
+  updateDeal,
+  createDeal,
 };
