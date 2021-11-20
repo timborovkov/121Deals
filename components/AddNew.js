@@ -6,8 +6,8 @@ const AddNew = () => {
     <div
       style={{
         position: "absolute",
-        bottom: "170px",
-        right: "44px",
+        bottom: "90px",
+        left: "20px",
         zIndex: 999,
       }}
     >

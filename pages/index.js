@@ -9,7 +9,6 @@ export default function Home() {
   const [deals, setDeals] = React.useState([]);
   React.useEffect(async () => {
     const dbdeals = await db.getDeals();
-    console.log(dbdeals);
     setDeals(dbdeals);
   }, []);
   return (
