@@ -1,12 +1,23 @@
 import React from "react";
-import Map from "../components/Map";
+import { Paper, Image, Container } from '@mui/material';
 
-export default function Home() {
-    return
+export default function AddNew() {
+  constructor(props) {
+    super(props)
+    this.state = {
+      imageSrc: '',
+      
+    };
+  }
+
+  setSttImage 
+
+  return (
     <div>
-      <SearchBar />
-      <Map deals={deals} />
-      <AddNew />
+      <Container>
+      <Image src="/mallikuva.jpeg">
+
+      </Image>
     </div>
   );
 }
