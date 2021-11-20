@@ -24,6 +24,25 @@ export default function Home() {
         strategy="beforeInteractive"
         src="https://mapapi.cloud.huawei.com/mapjs/v1/api/js?callback=initMap&key=CwEAAAAASFIKNP7sIH7XojHEkc/pzoBR5JFaabwOJEeh06Sk8Fs3dsKKIXiBP81xc6X3BsgOjhJo3vdAEqkfPGZeH497scGXgT0="
       />
+
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            function initMap() {
+              setInterval(()=>{
+                var mapOptions = {};
+                mapOptions.center = {lat: 60.18574466774271, lng: 24.937634178088686};
+                mapOptions.zoom = 12;
+                mapOptions.language='ENG';
+                // Set sourceType to raster.
+                mapOptions.sourceType = 'raster';
+                window.map = new HWMapJsSDK.HWMap(document.getElementById('map'), mapOptions);
+                window.HWMapJsSDK = HWMapJsSDK;
+              }, 1000)
+            }
+            `,
+        }}
+      />
     </div>
   );
 }

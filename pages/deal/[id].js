@@ -86,7 +86,6 @@ const DealPage = ({}) => {
             {deal.address}
           </Typography>
           {deal.images.map((image, key) => {
-            console.log(image, key);
             if (key != 0) {
               return (
                 <center>
