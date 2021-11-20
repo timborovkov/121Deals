@@ -13,12 +13,11 @@ export default function AddNew() {
     this.setState({ selectedFile: event.target.files[0] });
   }
 
-  sendUpload = upload => {
+  async function sendUpload(upload) {
+    const requestOne = {
+      method: 'POST'
+      headers: {'Content-Type': 'application/x-www-form-urlencoded', }
 
-  }
-
-  useEffect(() => {
-    const request = {
       "client":{
         "cp_id":"5190047000022239771",
         "product_id":"737518067793724053",
@@ -31,7 +30,15 @@ export default function AddNew() {
       },
     }
 
+    const response = fetch('https://oauth-login.cloud.huawei.com/oauth2/v3/token', request)
+      .then(response1 => response.json())
+
     
+    return response.json()
+  }
+
+  useEffect(() => {
+
     // POST request using fetch inside useEffect React hook
     const requestOptions = {
       method: 'POST',
@@ -40,7 +47,6 @@ export default function AddNew() {
     };
     fetch('https://reqres.in/api/posts', requestOptions)
       .then(response => response.json())
-      .then(data => setPostId(data.id));
 
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);
