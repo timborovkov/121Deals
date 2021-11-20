@@ -45,7 +45,6 @@ const AddPage = ({}) => {
               label="Title"
               variant="outlined"
               fullWidth
-              autoFocus
               style={{ marginBottom: 15 }}
               onChange={(e) => setDeal({ ...deal, title: e.target.value })}
             />
@@ -54,7 +53,6 @@ const AddPage = ({}) => {
               label="Pin"
               variant="outlined"
               fullWidth
-              autoFocus
               style={{ marginBottom: 15 }}
               onChange={(e) => setDeal({ ...deal, pin: e.target.value })}
             />
@@ -63,7 +61,6 @@ const AddPage = ({}) => {
               label="Tags"
               variant="outlined"
               fullWidth
-              autoFocus
               style={{ marginBottom: 15 }}
               onChange={(e) => setDeal({ ...deal, tags: e.target.value })}
             />
@@ -72,7 +69,6 @@ const AddPage = ({}) => {
               label="Contact email"
               variant="outlined"
               fullWidth
-              autoFocus
               style={{ marginBottom: 15 }}
               onChange={(e) => setDeal({ ...deal, title: e.target.value })}
             />
@@ -81,7 +77,6 @@ const AddPage = ({}) => {
               label="Address"
               variant="outlined"
               fullWidth
-              autoFocus
               style={{ marginBottom: 15 }}
               onChange={(e) => setDeal({ ...deal, address: e.target.value })}
             />
@@ -91,7 +86,6 @@ const AddPage = ({}) => {
               variant="outlined"
               type="number"
               fullWidth
-              autoFocus
               style={{ marginBottom: 15 }}
               onChange={(e) =>
                 setDeal({
@@ -106,7 +100,6 @@ const AddPage = ({}) => {
               variant="outlined"
               type="number"
               fullWidth
-              autoFocus
               style={{ marginBottom: 15 }}
               onChange={(e) =>
                 setDeal({
@@ -120,7 +113,6 @@ const AddPage = ({}) => {
               label="Description"
               variant="outlined"
               fullWidth
-              autoFocus
               multiline
               maxRows={4}
               style={{ marginBottom: 15 }}
@@ -133,7 +125,6 @@ const AddPage = ({}) => {
               label="Contact email"
               variant="outlined"
               fullWidth
-              autoFocus
               style={{ marginBottom: 15 }}
               onChange={(e) => setDeal({ ...deal, email: e.target.value })}
             />
@@ -142,7 +133,6 @@ const AddPage = ({}) => {
               label="Contact phone"
               variant="outlined"
               fullWidth
-              autoFocus
               style={{ marginBottom: 15 }}
               onChange={(e) => setDeal({ ...deal, phone: e.target.value })}
             />
@@ -151,7 +141,6 @@ const AddPage = ({}) => {
               label="Price in euros"
               variant="outlined"
               fullWidth
-              autoFocus
               style={{ marginBottom: 15 }}
               onChange={(e) => setDeal({ ...deal, price: e.target.value })}
             />
