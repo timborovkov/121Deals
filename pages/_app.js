@@ -6,6 +6,20 @@ import { useRouter } from "next/router";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDQdF6CPY6kTVOCMqyyNS4hfeDa8ltVNhM",
+  authDomain: "app121deals.firebaseapp.com",
+  projectId: "app121deals",
+  storageBucket: "app121deals.appspot.com",
+  messagingSenderId: "797861660075",
+  appId: "1:797861660075:web:400a3074c9a1bff114beee",
+  measurementId: "G-5N7ZNEK1H4",
+};
+
+const app = initializeApp(firebaseConfig);
+
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
@@ -57,7 +71,7 @@ function MyApp({ Component, pageProps }) {
           <meta name="mobile-web-app-capable" content="yes" />
         </Head>
         <div style={{ minHeight: "100vh", overflowY: "scroll" }}>
-          <Component {...pageProps} />
+          <Component {...pageProps} app={app} />
         </div>
       </div>
     </ThemeProvider>
