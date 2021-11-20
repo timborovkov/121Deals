@@ -32,7 +32,9 @@ const DealPage = ({}) => {
     }
   };
 
-  const save = () => {};
+  const save = () => {
+    console.log(deal);
+  };
 
   React.useEffect(async () => {
     const thedeal = await db.getDeal(id);
@@ -43,7 +45,7 @@ const DealPage = ({}) => {
     return (
       <div>
         <Header />
-        <Container style={{ paddingTop: 60, paddingBottom: 100 }}>
+        <Container style={{ paddingTop: 60, paddingBottom: 100 }} maxWidth="sm">
           <center>
             <img
               src={deal.images[0]}
@@ -73,11 +75,84 @@ const DealPage = ({}) => {
                   variant="outlined"
                   fullWidth
                   autoFocus
+                  value={deal.title}
+                  style={{ marginBottom: 15 }}
+                  onChange={(e) => setDeal({ ...deal, title: e.target.value })}
+                />
+                <TextField
+                  id="outlined-basic"
+                  label="Address"
+                  variant="outlined"
+                  fullWidth
+                  autoFocus
+                  value={deal.address}
+                  style={{ marginBottom: 15 }}
+                  onChange={(e) =>
+                    setDeal({ ...deal, address: e.target.value })
+                  }
+                />
+                <TextField
+                  id="outlined-basic"
+                  label="Description"
+                  variant="outlined"
+                  fullWidth
+                  autoFocus
+                  multiline
+                  maxRows={4}
+                  value={deal.description}
+                  style={{ marginBottom: 15 }}
+                  onChange={(e) =>
+                    setDeal({ ...deal, description: e.target.value })
+                  }
+                />
+                <TextField
+                  id="outlined-basic"
+                  label="Contact email"
+                  variant="outlined"
+                  fullWidth
+                  autoFocus
                   value={deal.email}
                   style={{ marginBottom: 15 }}
+                  onChange={(e) => setDeal({ ...deal, email: e.target.value })}
+                />
+                <TextField
+                  id="outlined-basic"
+                  label="Contact phone"
+                  variant="outlined"
+                  fullWidth
+                  autoFocus
+                  value={deal.phone}
+                  style={{ marginBottom: 15 }}
+                  onChange={(e) => setDeal({ ...deal, phone: e.target.value })}
+                />
+                <TextField
+                  id="outlined-basic"
+                  label="Price in tokens"
+                  variant="outlined"
+                  fullWidth
+                  autoFocus
+                  value={deal.price}
+                  style={{ marginBottom: 15 }}
+                  onChange={(e) => setDeal({ ...deal, price: e.target.value })}
+                />
+                <TextField
+                  id="outlined-basic"
+                  label="121 Token wallet"
+                  variant="outlined"
+                  fullWidth
+                  autoFocus
+                  value={deal.wallet}
+                  style={{ marginBottom: 15 }}
+                  onChange={(e) => setDeal({ ...deal, wallet: e.target.value })}
                 />
                 <FormControlLabel
-                  control={<Switch />}
+                  control={
+                    <Switch
+                      onChange={(e) =>
+                        setDeal({ ...deal, sold: e.target.checked })
+                      }
+                    />
+                  }
                   label="Sold"
                   style={{ marginBottom: 15 }}
                 />

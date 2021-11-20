@@ -22,7 +22,7 @@ const DealPage = ({}) => {
     return (
       <div>
         <Header />
-        <Container style={{ paddingTop: 60, paddingBottom: 60 }}>
+        <Container style={{ paddingTop: 60, paddingBottom: 60 }} maxWidth="sm">
           <center>
             <img
               src={deal.images[0]}
@@ -50,7 +50,16 @@ const DealPage = ({}) => {
             style={{ textAlign: "center" }}
             gutterBottom
           >
-            {deal.price} €
+            {deal.price} tokens
+          </Typography>
+          <Typography
+            variant="body1"
+            component="div"
+            fontSize="12px"
+            style={{ textAlign: "center" }}
+            gutterBottom
+          >
+            + network fees
           </Typography>
           <Typography
             variant="body1"
@@ -66,6 +75,15 @@ const DealPage = ({}) => {
             gutterBottom
           >
             {deal.description}
+          </Typography>
+          <Typography
+            variant="h3"
+            component="div"
+            fontSize="22px"
+            style={{ textAlign: "center" }}
+            gutterBottom
+          >
+            {deal.address}
           </Typography>
           {deal.images.map((image, key) => {
             console.log(image, key);

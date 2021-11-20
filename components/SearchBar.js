@@ -12,12 +12,12 @@ const SearchBar = () => {
     <div
       style={{
         position: "absolute",
-        top: "50px",
+        top: "80px",
         width: "100%",
         zIndex: 999,
       }}
     >
-      <Container>
+      <Container maxWidth="sm">
         <Paper>
           <TextField
             label="Search"

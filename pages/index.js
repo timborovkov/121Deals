@@ -2,6 +2,7 @@ import React from "react";
 import Map from "../components/Map";
 import AddNew from "../components/AddNew";
 import SearchBar from "../components/SearchBar";
+import Title from "../components/Title";
 
 import db from "../firebase";
 
@@ -13,6 +14,7 @@ export default function Home() {
   }, []);
   return (
     <div>
+      <Title />
       <SearchBar />
       <Map deals={deals} />
       <AddNew />

@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import ContactIcon from "@mui/icons-material/Mail";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import EditIcon from "@mui/icons-material/Edit";
 
 export default function Footer({ deal }) {
@@ -13,6 +13,9 @@ export default function Footer({ deal }) {
   const { id } = router.query;
 
   var active = 0;
+  if (router.asPath.includes("/deal/buy")) {
+    active = 1;
+  }
   if (router.asPath.includes("/deal/edit")) {
     active = 2;
   }
@@ -27,8 +30,8 @@ export default function Footer({ deal }) {
         />
         <BottomNavigationAction
           label="Buy"
-          icon={<ContactIcon />}
-          onClick={() => (window.location.href = `mailto:${deal.email}`)}
+          icon={<ShoppingCartIcon />}
+          onClick={() => router.push(`/deal/buy/${id}`)}
         />
         <BottomNavigationAction
           label="Edit"
