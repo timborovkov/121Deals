@@ -12,9 +12,9 @@ function MyApp({ Component, pageProps }) {
   const theme = createTheme({
     palette: {
       primary: {
-        light: "#2fbaf7",
-        main: "#00a0e5",
-        dark: "#006794",
+        light: "#84e381",
+        main: "#49c746",
+        dark: "#2f802d",
         contrastText: "#ffffff",
       },
     },
@@ -55,6 +55,23 @@ function MyApp({ Component, pageProps }) {
           <meta name="description" content="" />
           <meta name="format-detection" content="telephone=no" />
           <meta name="mobile-web-app-capable" content="yes" />
+
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              UPLOADCARE_PUBLIC_KEY = 'ec84594e8303ed066cf2';
+              UPLOADCARE_LOCALE_TRANSLATIONS = {
+                  buttons: {
+                      choose: {
+                          files: {
+                              other: 'Select images'
+                          }
+                      }
+                  }
+              }
+            `,
+            }}
+          />
         </Head>
         <div style={{ minHeight: "100vh", overflowY: "scroll" }}>
           <Component {...pageProps} />

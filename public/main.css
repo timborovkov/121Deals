@@ -8,3 +8,8 @@ html {
   width: 100%;
   margin: 0 auto;
 }
+
+.uploadcare--widget__button.uploadcare--widget__button_type_open {
+  background-color: #49c746;
+  margin-bottom: 15px;
+}
