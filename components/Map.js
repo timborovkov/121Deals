@@ -35,6 +35,7 @@ const Map = ({ deals }) => {
                 // Set sourceType to raster.
                 mapOptions.sourceType = 'raster';
                 window.map = new HWMapJsSDK.HWMap(document.getElementById('map'), mapOptions);
+                window.map.setPresetStyleId("night");
                 window.HWMapJsSDK = HWMapJsSDK;
             }
             `,
