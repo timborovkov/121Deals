@@ -26,11 +26,20 @@ const DealPage = ({}) => {
         <Typography
           variant="h1"
           component="div"
-          fontSize="24px"
+          fontSize="26px"
           style={{ textAlign: "center" }}
           gutterBottom
         >
           {deal.title}
+        </Typography>
+        <Typography
+          variant="h2"
+          component="div"
+          fontSize="22px"
+          style={{ textAlign: "center" }}
+          gutterBottom
+        >
+          {deal.price} €
         </Typography>
         <Typography
           variant="body1"
@@ -40,6 +49,19 @@ const DealPage = ({}) => {
         >
           {deal.description}
         </Typography>
+        {deal.images.map((image, key) => {
+          console.log(image, key);
+          if (key != 0) {
+            return (
+              <img
+                key={key}
+                src={image}
+                alt={deal.title}
+                style={{ width: "100%", marginBottom: "20px" }}
+              />
+            );
+          }
+        })}
       </Container>
     );
   } else {
