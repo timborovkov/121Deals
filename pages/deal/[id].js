@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { Container, Typography } from "@mui/material";
 
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 import db from "../../firebase";
 
@@ -21,7 +22,7 @@ const DealPage = ({}) => {
     return (
       <div>
         <Header />
-        <Container style={{ paddingTop: 60 }}>
+        <Container style={{ paddingTop: 60, paddingBottom: 60 }}>
           <img
             src={deal.images[0]}
             alt={deal.title}
@@ -67,6 +68,7 @@ const DealPage = ({}) => {
             }
           })}
         </Container>
+        <Footer />
       </div>
     );
   } else {
