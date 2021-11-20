@@ -50,7 +50,7 @@ const DealPage = ({}) => {
             style={{ textAlign: "center" }}
             gutterBottom
           >
-            {deal.price} tokens
+            {deal.price} €
           </Typography>
           <Typography
             variant="body1"

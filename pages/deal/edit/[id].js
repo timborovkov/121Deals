@@ -128,23 +128,13 @@ const DealPage = ({}) => {
                 />
                 <TextField
                   id="outlined-basic"
-                  label="Price in tokens"
+                  label="Price in euros"
                   variant="outlined"
                   fullWidth
                   autoFocus
                   value={deal.price}
                   style={{ marginBottom: 15 }}
                   onChange={(e) => setDeal({ ...deal, price: e.target.value })}
-                />
-                <TextField
-                  id="outlined-basic"
-                  label="121 Token wallet"
-                  variant="outlined"
-                  fullWidth
-                  autoFocus
-                  value={deal.wallet}
-                  style={{ marginBottom: 15 }}
-                  onChange={(e) => setDeal({ ...deal, wallet: e.target.value })}
                 />
                 <FormControlLabel
                   control={

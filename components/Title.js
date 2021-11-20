@@ -5,7 +5,7 @@ const Title = () => {
     <div
       style={{
         position: "absolute",
-        top: "20px",
+        top: "40px",
         width: "100%",
         zIndex: 999,
       }}
@@ -17,7 +17,7 @@ const Title = () => {
           fontSize="26px"
           style={{ textAlign: "center", fontWeight: "bold" }}
         >
-          121 Deals <br /> Your local blockchain buy and sell
+          121 Deals
         </Typography>
       </Container>
     </div>
