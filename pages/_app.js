@@ -38,21 +38,6 @@ function MyApp({ Component, pageProps }) {
           />
           <link rel="stylesheet" href="/main.css" />
 
-          <script
-            async
-            src="https://mapapi.cloud.huawei.com/mapjs/v1/api/js?callback=initMap&key="
-          ></script>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-DT0XSNY9K3');
-            `,
-            }}
-          />
-
           <meta
             name="viewport"
             content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
