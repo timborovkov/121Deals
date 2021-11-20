@@ -23,11 +23,17 @@ const DealPage = ({}) => {
       <div>
         <Header />
         <Container style={{ paddingTop: 60, paddingBottom: 60 }}>
-          <img
-            src={deal.images[0]}
-            alt={deal.title}
-            style={{ width: "100%", marginBottom: "20px" }}
-          />
+          <center>
+            <img
+              src={deal.images[0]}
+              alt={deal.title}
+              style={{
+                width: "100%",
+                marginBottom: "20px",
+                maxWidth: 600,
+              }}
+            />
+          </center>
           <Typography
             variant="h1"
             component="div"
@@ -49,7 +55,14 @@ const DealPage = ({}) => {
           <Typography
             variant="body1"
             fontSize="16px"
-            style={{ textAlign: "center" }}
+            style={{
+              textAlign: "center",
+              marginBottom: 20,
+              marginTop: 20,
+              maxWidth: 600,
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
             gutterBottom
           >
             {deal.description}
@@ -58,17 +71,23 @@ const DealPage = ({}) => {
             console.log(image, key);
             if (key != 0) {
               return (
-                <img
-                  key={key}
-                  src={image}
-                  alt={deal.title}
-                  style={{ width: "100%", marginBottom: "20px" }}
-                />
+                <center>
+                  <img
+                    key={key}
+                    src={image}
+                    alt={deal.title}
+                    style={{
+                      width: "100%",
+                      marginBottom: "20px",
+                      maxWidth: 600,
+                    }}
+                  />
+                </center>
               );
             }
           })}
         </Container>
-        <Footer />
+        <Footer deal={deal} />
       </div>
     );
   } else {
