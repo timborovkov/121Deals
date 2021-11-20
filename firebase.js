@@ -1,5 +1,11 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  getDoc,
+  doc,
+} from "firebase/firestore/lite";
 
 const clientCredentials = {
   apiKey: "AIzaSyDQdF6CPY6kTVOCMqyyNS4hfeDa8ltVNhM",
@@ -19,10 +25,23 @@ const db = getFirestore(app);
 const getDeals = async () => {
   const dealsCol = collection(db, "deals");
   const dealsSnapshot = await getDocs(dealsCol);
-  const deals = dealsSnapshot.docs.map((doc) => doc.data());
+  const deals = dealsSnapshot.docs.map((doc) => ({
+    ...doc.data(),
+    id: doc.id,
+  }));
   return deals;
+};
+
+const getDeal = async (id) => {
+  const docRef = doc(db, "deals/" + id);
+  const docSnap = await getDoc(docRef);
+
+  if (docSnap.exists()) {
+    return docSnap.data();
+  }
 };
 
 export default {
   getDeals,
+  getDeal,
 };
