@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-const Map = () => {
+const Map = ({ deals }) => {
   return (
     <div>
       <Head>
@@ -13,7 +13,7 @@ const Map = () => {
             __html: `
             function initMap() {
                 var mapOptions = {};
-                mapOptions.center = {lat: 48.856613, lng: 2.352222};
+                mapOptions.center = {lat: 60.18574466774271, lng: 24.937634178088686};
                 mapOptions.zoom = 8;
                 mapOptions.language='ENG';
                 // Set sourceType to raster.

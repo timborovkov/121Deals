@@ -18,7 +18,7 @@ const SearchBar = () => {
       }}
     >
       <Container>
-        <Paper fullWidth>
+        <Paper>
           <TextField
             label="Search"
             variant="filled"
