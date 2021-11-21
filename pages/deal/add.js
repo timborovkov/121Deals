@@ -51,9 +51,9 @@ const AddPage = ({}) => {
       setDeal({ ...deal, images: imageLinks });
 
       Vision(imageLinks[0], (data) => {
-        var newtags = [];
+        var newtags = "";
         data.responses[0].labelAnnotations.map((label, key) => {
-          newtags.push(label.description);
+          newtags += label.description + ", ";
         });
 
         setDeal({
@@ -101,6 +101,7 @@ const AddPage = ({}) => {
               style={{ marginBottom: 15 }}
               value={deal.title}
               onChange={(e) => setDeal({ ...deal, title: e.target.value })}
+              autoFocus
             />
             <TextField
               id="outlined-basic"
@@ -118,6 +119,7 @@ const AddPage = ({}) => {
               style={{ marginBottom: 15 }}
               value={deal.tags}
               onChange={(e) => setDeal({ ...deal, tags: e.target.value })}
+              autoFocus
             />
             <TextField
               id="outlined-basic"
