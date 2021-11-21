@@ -13,7 +13,7 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
-const Header = () => {
+const Header = ({ hideSearch }) => {
   const router = useRouter();
 
   return (
@@ -23,7 +23,7 @@ const Header = () => {
         position: "fixed",
         top: "0px",
         width: "100%",
-        zIndex: 999,
+        zIndex: 1000,
       }}
     >
       <AppBar position="static">
@@ -41,16 +41,18 @@ const Header = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             121.Deals
           </Typography>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-            onClick={() => router.push("/search")}
-          >
-            <SearchIcon />
-          </IconButton>
+          {!hideSearch && (
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+              onClick={() => router.push("/search")}
+            >
+              <SearchIcon />
+            </IconButton>
+          )}
         </Toolbar>
       </AppBar>
     </Box>

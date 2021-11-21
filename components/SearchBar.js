@@ -1,13 +1,17 @@
+import { useRouter } from "next/router";
+
 import SearchIcon from "@mui/icons-material/Search";
 import {
   TextField,
   Container,
   InputAdornment,
-  FormControl,
+  IconButton,
   Paper,
 } from "@mui/material";
 
-const SearchBar = () => {
+const SearchBar = ({ change }) => {
+  const router = useRouter();
+
   return (
     <div
       style={{
@@ -23,10 +27,26 @@ const SearchBar = () => {
             label="Search"
             variant="filled"
             fullWidth
+            onChange={(e) => {
+              window.searchdata = e.target.value;
+              if (
+                change &&
+                (e.target.value.length >= 3 || e.target.value.length == 0)
+              ) {
+                change(e.target.value);
+              }
+            }}
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  <SearchIcon />
+                  <IconButton
+                    color="primary"
+                    aria-label="search"
+                    component="span"
+                    onClick={() => router.push("/search")}
+                  >
+                    <SearchIcon />
+                  </IconButton>
                 </InputAdornment>
               ),
             }}
