@@ -16,9 +16,7 @@ const Title = () => {
           component="div"
           fontSize="26px"
           style={{ textAlign: "center", fontWeight: "bold" }}
-        >
-          121 Deals
-        </Typography>
+        ></Typography>
       </Container>
     </div>
   );
