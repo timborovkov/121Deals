@@ -22,8 +22,34 @@ const BuyPage = ({}) => {
     return (
       <div>
         <Header />
-        <Container style={{ paddingTop: 60, paddingBottom: 100 }} maxWidth="sm">
-          <center></center>
+        <Container
+          style={{ paddingTop: 200, paddingBottom: 100 }}
+          maxWidth="sm"
+        >
+          <Typography
+            variant="h2"
+            component="div"
+            fontSize="22px"
+            style={{ textAlign: "center" }}
+          >
+            Contact the seller
+          </Typography>
+          <Typography
+            variant="p"
+            component="div"
+            fontSize="16px"
+            style={{ textAlign: "center" }}
+          >
+            {deal.email}
+          </Typography>
+          <Typography
+            variant="p"
+            component="div"
+            fontSize="16px"
+            style={{ textAlign: "center" }}
+          >
+            {deal.phone}
+          </Typography>
         </Container>
         <Footer deal={deal} />
       </div>
