@@ -26,6 +26,26 @@ const BuyPage = ({}) => {
           style={{ paddingTop: 200, paddingBottom: 100 }}
           maxWidth="sm"
         >
+          <center>
+            <img
+              src={deal.images[0]}
+              alt={deal.title}
+              style={{
+                marginBottom: "20px",
+                maxWidth: 600,
+                maxHeight: 200,
+              }}
+            />
+          </center>
+          <Typography
+            variant="h1"
+            component="div"
+            fontSize="26px"
+            style={{ textAlign: "center" }}
+            gutterBottom
+          >
+            Buy {deal.title} - {deal.price} €
+          </Typography>
           <Typography
             variant="h2"
             component="div"
@@ -40,7 +60,7 @@ const BuyPage = ({}) => {
             fontSize="16px"
             style={{ textAlign: "center" }}
           >
-            {deal.email}
+            Email: {deal.email}
           </Typography>
           <Typography
             variant="p"
@@ -48,7 +68,7 @@ const BuyPage = ({}) => {
             fontSize="16px"
             style={{ textAlign: "center" }}
           >
-            {deal.phone}
+            Phone: {deal.phone}
           </Typography>
         </Container>
         <Footer deal={deal} />

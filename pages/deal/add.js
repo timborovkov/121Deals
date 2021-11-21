@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 
 import Header from "../../components/Header";
+import Vision from "../../components/Vision";
 
 import db from "../../firebase";
 
@@ -25,6 +26,8 @@ const AddPage = ({}) => {
     },
     images: [],
   });
+
+  const [visionData, setVisionData] = React.useState(null);
 
   const save = () => {
     db.createDeal(deal);
@@ -46,6 +49,21 @@ const AddPage = ({}) => {
       }
       console.log(imageLinks);
       setDeal({ ...deal, images: imageLinks });
+
+      Vision(imageLinks[0], (data) => {
+        var newtags = [];
+        data.responses[0].labelAnnotations.map((label, key) => {
+          newtags.push(label.description);
+        });
+
+        setDeal({
+          ...deal,
+          title: data.responses[0].labelAnnotations[0].description,
+        });
+        setDeal({ ...deal, tags: newtags });
+
+        setVisionData(data);
+      });
     });
   }, []);
 
@@ -65,6 +83,14 @@ const AddPage = ({}) => {
         <div>
           <center>
             <input id="uploader" type="hidden" />
+            {deal.images.length > 0 && (
+              <img
+                src={deal.images[0]}
+                alt="product image preview"
+                style={{ width: "100%" }}
+                id="theimage"
+              />
+            )}
           </center>
           <FormGroup>
             <TextField
@@ -73,6 +99,7 @@ const AddPage = ({}) => {
               variant="outlined"
               fullWidth
               style={{ marginBottom: 15 }}
+              value={deal.title}
               onChange={(e) => setDeal({ ...deal, title: e.target.value })}
             />
             <TextField
@@ -89,6 +116,7 @@ const AddPage = ({}) => {
               variant="outlined"
               fullWidth
               style={{ marginBottom: 15 }}
+              value={deal.tags}
               onChange={(e) => setDeal({ ...deal, tags: e.target.value })}
             />
             <TextField
