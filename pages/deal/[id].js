@@ -22,17 +22,19 @@ const DealPage = ({}) => {
     return (
       <div>
         <Header />
-        <Container style={{ paddingTop: 60, paddingBottom: 60 }} maxWidth="sm">
+        <Container style={{ paddingTop: 80, paddingBottom: 60 }} maxWidth="sm">
           <center>
-            <img
-              src={deal.images[0]}
-              alt={deal.title}
-              style={{
-                width: "100%",
-                marginBottom: "20px",
-                maxWidth: 600,
-              }}
-            />
+            {deal.images && (
+              <img
+                src={deal.images[0]}
+                alt={deal.title}
+                style={{
+                  width: "100%",
+                  marginBottom: "20px",
+                  maxWidth: 600,
+                }}
+              />
+            )}
           </center>
           <Typography
             variant="h1"
@@ -76,7 +78,7 @@ const DealPage = ({}) => {
           >
             {deal.address}
           </Typography>
-          {deal.images.map((image, key) => {
+          {deal.images?.map((image, key) => {
             if (key != 0) {
               return (
                 <center>
